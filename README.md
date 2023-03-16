@@ -38,3 +38,37 @@ const houseElf = new Elf('Dolby', 'cloth', 'house')
 const shrek = new Ogre('Shrek', 'club', 'green')
 shrek.makeFort()
 ```
+
+MAKE PRIVATE PROPERTIES AND METHOD JS CLASS 
+
+```JS
+class Employee {
+    #name = "Test"; // private field
+    setName(name) {
+        this.#name = name;
+    }
+}
+```
+
+```JS
+const emp = new Employee();
+emp.#name = 'New'; // error
+emp.setName('New'); // ok
+```
+
+```JS
+class Employee {
+    #name = "Test";
+    constructor(name) {
+        this.#setName(name) // ok
+    }
+    #setName(name) { // Private method
+        this.#name = name;
+    }
+}
+```
+
+```JS
+const emp = new Employee('New'); // ok
+emp.#setName('New'); // error
+```
